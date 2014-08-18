@@ -7,11 +7,8 @@ feature "Team creation" do
     sign_in(user)
 
     visit root_path
-
     click_link "Create team"
-
     fill_in "Name", with: team.name
-
     click_button "Create Team"
 
     expect(page).to have_content(team.name)
@@ -19,12 +16,11 @@ feature "Team creation" do
 
   scenario "I cannot create a team if I have one" do
     team = FactoryGirl.create(:team)
-    user = FactoryGirl.create(:user)
-    user.team = team
+    user = FactoryGirl.create(:user, team: team)
     sign_in(user)
 
     visit root_path
 
-    expect(page).to_not have_link("Create team")
+    expect(page).not_to have_link("Create team")
   end
 end
