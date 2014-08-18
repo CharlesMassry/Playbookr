@@ -8,15 +8,12 @@ feature "As a user" do
 
     click_link "Sign up"
 
-    expect(page).to have_selector("form")
-
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
     click_button "Sign up"
 
     expect(page).to have_content(user.email)
-    expect(User.find_by(email: user.email).email).
-      to eq(user.email)
+    expect(find_user(user).email).to eq(user.email)
   end
 
   scenario "I can sign in to playbookr" do
@@ -26,14 +23,15 @@ feature "As a user" do
 
     click_link "Sign in"
 
-    expect(page).to have_selector("form")
-
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
     click_button "Sign in"
 
     expect(page).to have_content(user.email)
-    expect(User.find_by(email: user.email).email).
-      to have_content(user.email)
+    expect(find_user(user)).to eq(user)
   end
+end
+
+def find_user(user)
+  User.find_by(email: user.email)
 end
