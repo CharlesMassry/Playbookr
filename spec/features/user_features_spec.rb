@@ -13,6 +13,7 @@ feature "As a user" do
     click_button "Sign up"
 
     expect(page).to have_content("wombat@example.com")
-    expect(User.find_by(email: "wombat@example.com").email).to have_content("wombat@example.com")
+    expect(User.find_by(email: "wombat@example.com").email).
+      to have_content("wombat@example.com")
   end
 end
