@@ -6,6 +6,6 @@ RSpec.configure do |config|
   config.include Monban::Test::Helpers, type: :feature
 
   config.after :each do
-      Monban.test_reset!
+    Monban.test_reset!
   end
 end
