@@ -2,7 +2,7 @@ require "rails_helper"
 
 feature "As a user" do
   scenario "I can sign up for playbookr" do
-    user = FactoryGirl.build(:coach)
+    user = FactoryGirl.build(:user)
 
     visit root_path
 
@@ -20,7 +20,7 @@ feature "As a user" do
   end
 
   scenario "I can sign in to playbookr" do
-    user = FactoryGirl.create(:coach)
+    user = FactoryGirl.create(:user)
 
     visit root_path
 

@@ -1,6 +1,6 @@
 FactoryGirl.define do
-  factory :coach, class: User do
-    email "coach@myteam.com"
+  factory :user do
+    email "wombat@example.com"
     password_digest "password"
   end
 end
