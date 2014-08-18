@@ -12,8 +12,11 @@ gem "email_validator"
 gem "flutie"
 gem "simple_form"
 gem "title"
+gem "haml"
+gem "monban", "~> 0.1.1"
 
 group :development do
+  gem "monban-generators"
   gem "spring"
   gem "spring-commands-rspec"
 end

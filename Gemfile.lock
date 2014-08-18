@@ -30,6 +30,7 @@ GEM
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
     awesome_print (1.2.0)
+    bcrypt (3.1.7)
     builder (3.2.2)
     byebug (3.2.0)
       columnize (~> 0.8)
@@ -76,6 +77,8 @@ GEM
       activesupport
       capybara
       i18n
+    haml (4.0.5)
+      tilt
     hike (1.2.3)
     i18n (0.6.11)
     jquery-rails (3.1.1)
@@ -91,6 +94,12 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.0)
+    monban (0.1.1)
+      bcrypt
+      rails
+      warden
+    monban-generators (0.0.4)
+      monban (>= 0.0.12)
     multi_json (1.10.1)
     nokogiri (1.6.3.1)
       mini_portile (= 0.6.0)
@@ -179,6 +188,8 @@ GEM
     uglifier (2.5.3)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.3)
+      rack (>= 1.0)
     webmock (1.18.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -199,8 +210,11 @@ DEPENDENCIES
   factory_girl_rails
   flutie
   formulaic
+  haml
   jquery-rails
   launchy
+  monban (~> 0.1.1)
+  monban-generators
   pg
   pry-rails
   rails (~> 4.1.4)
