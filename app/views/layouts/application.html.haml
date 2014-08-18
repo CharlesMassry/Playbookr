@@ -8,6 +8,8 @@
   %body
     - if signed_in?
       = current_user.email
+      -if current_user.team.nil?
+        = link_to "Create team", new_team_path
     - else
       = link_to "Sign in", new_session_path
       = link_to "Sign up", new_user_path
