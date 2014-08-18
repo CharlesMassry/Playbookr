@@ -5,9 +5,7 @@ feature "As a user" do
     user = FactoryGirl.build(:user)
 
     visit root_path
-
     click_link "Sign up"
-
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
     click_button "Sign up"
@@ -20,9 +18,7 @@ feature "As a user" do
     user = FactoryGirl.create(:user)
 
     visit root_path
-
     click_link "Sign in"
-
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
     click_button "Sign in"
