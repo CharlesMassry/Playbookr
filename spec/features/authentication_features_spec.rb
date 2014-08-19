@@ -29,12 +29,14 @@ feature "As a user" do
 
   scenario "I can sign out" do
     user = FactoryGirl.create(:user)
-    sign_in(user)
 
+    sign_in(user)
     visit root_path
     click_link "Sign out"
 
     expect(page).not_to have_content(user.email)
+    expect(page).to have_link("Sign in")
+    expect(page).to have_link("Sign up")
   end
 end
 
