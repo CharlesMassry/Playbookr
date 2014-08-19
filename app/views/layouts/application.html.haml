@@ -8,6 +8,7 @@
   %body
     - if signed_in?
       = current_user.email
+      = link_to "Sign out", session_path, method: :delete
       -if current_user.team.nil?
         = link_to "Create team", new_team_path
     - else

@@ -26,6 +26,16 @@ feature "As a user" do
     expect(page).to have_content(user.email)
     expect(find_user(user)).to eq(user)
   end
+
+  scenario "I can sign out" do
+    user = FactoryGirl.create(:user)
+    sign_in(user)
+
+    visit root_path
+    click_link "Sign out"
+
+    expect(page).not_to have_content(user.email)
+  end
 end
 
 def find_user(user)
