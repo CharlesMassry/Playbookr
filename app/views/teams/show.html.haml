@@ -1,5 +1,5 @@
 %h1
   = @team.name
-
+= link_to "Add Play", new_team_play_path(@team)
 .players
   = render @team.users

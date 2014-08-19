@@ -1,0 +1,10 @@
+.play_form
+  = form_for [@team, @play] do |form|
+    .play_name_form
+      = form.label :name
+      = form.text_field :name
+    .play_description_form
+      = form.label :description
+      = form.text_area :description
+    .play_submit_button
+      = form.submit "Add play"

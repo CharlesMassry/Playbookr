@@ -1,4 +1,5 @@
 Monban.test_mode!
+include ActionDispatch::TestProcess
 
 RSpec.configure do |config|
   config.include Capybara::DSL
