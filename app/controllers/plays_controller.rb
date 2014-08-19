@@ -5,8 +5,8 @@ class PlaysController < ApplicationController
   end
 
   def create
-    @team = find_team
     @play = Play.new(play_params)
+    @team = @play.team
 
     if @play.save
       redirect_to [@team, @play]
@@ -23,7 +23,10 @@ class PlaysController < ApplicationController
   private
 
   def play_params
-    params.require(:play).permit(:name, :description).merge(team: @team)
+    params.
+      require(:play).
+      permit(:name, :description).
+      merge(team: find_team)
   end
 
   def find_play
