@@ -1,14 +1,13 @@
 require "rails_helper"
 
-feature "As a user" do
+feature "Play creation" do
   scenario "I can add plays to my team" do
-    team = FactoryGirl.create(:team)
-    user = FactoryGirl.create(:user, team: team)
-    play = FactoryGirl.build(:play)
+    team = create(:team)
+    user = create(:user, team: team)
+    play = build(:play)
 
     sign_in(user)
     visit team_path(team)
-
     click_link "Add Play"
     fill_in "Name", with: play.name
     fill_in "Description", with: play.description

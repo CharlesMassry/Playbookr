@@ -1,9 +1,9 @@
 require "rails_helper"
 
-feature "As a user" do
+feature "Team creation" do
   scenario "I can create a team if I don't have one" do
-    team = FactoryGirl.build(:team)
-    user = FactoryGirl.create(:user)
+    team = build(:team)
+    user = create(:user)
 
     sign_in(user)
     visit root_path
@@ -15,8 +15,8 @@ feature "As a user" do
   end
 
   scenario "I cannot create a team if I have one" do
-    team = FactoryGirl.create(:team)
-    user = FactoryGirl.create(:user, team: team)
+    team = create(:team)
+    user = create(:user, team: team)
 
     sign_in(user)
     visit root_path
