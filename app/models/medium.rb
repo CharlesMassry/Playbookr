@@ -5,6 +5,8 @@ class Medium < ActiveRecord::Base
 
   validates :play, presence: true
   validates_attachment :file,
-    content_type: { content_type: /\A(image)|(video)\/.*\Z/ },
+    content_type: {
+      content_type: /\A(image)|(video)\/.*\Z/
+    },
     presence: true
 end
