@@ -2,3 +2,7 @@
   = @play.name
 .play_description
   = @play.description
+
+= link_to "Add photo or video", new_team_play_medium_path(@play.team, @play)
+
+= render @media

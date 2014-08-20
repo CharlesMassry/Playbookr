@@ -1,0 +1,42 @@
+@import "_site.css.scss";
+.container {
+  background-color: $nav-background-color;
+
+  nav {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: grid-width(4.5);
+    margin-left: auto;
+    margin-right: auto;
+
+    ul {
+      list-style-type: none;
+      display: inline-block;
+      float: right;
+
+      li {
+        display: inline-block;
+      }
+    }
+  }
+
+  .brand {
+    font-family: "Droid Sans Mono", monaco;
+    font-size: 1.75em;
+    color: $brand-color;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0px;
+    &:hover {
+      color: $brand-hover-color;
+    }
+  }
+
+  a {
+    color: $link-color;
+    text-decoration: none;
+    &:hover {
+      color: $link-hover-color;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+%nav
+  = link_to "Playbookr", root_path, class: "brand"
+  %ul
+    - if signed_in?
+      %li
+        = current_user.email
+      %li
+        = link_to "Sign out", session_path, class: "sign-out", method: :delete
+
+      -if current_user.team.nil?
+        %li
+          = link_to "Create team", new_team_path, class: "create-team"
+
+    - else
+      %li
+        = link_to "Sign in", new_session_path, class: "sign-in"
+      %li
+        = link_to "Sign up", new_user_path, class: "sign-up"

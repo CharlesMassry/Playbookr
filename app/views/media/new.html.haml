@@ -1,0 +1,10 @@
+.medium_form
+= form_for [@team, @play, @medium] do |form|
+  .file_media_form
+    = form.label :file
+    = form.file_field :file
+  .caption_media_form
+    = form.label :caption
+    = form.text_field :caption
+  .submit_media_form
+    = form.submit "Add photo or video"
