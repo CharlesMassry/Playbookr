@@ -13,6 +13,11 @@ gem "flutie"
 gem "title"
 gem "haml"
 gem "monban", "~> 0.1.1"
+gem "paperclip", "~> 4.1"
+gem "bourbon", "~> 3.2.1"
+gem "neat", "~> 1.5.1"
+gem "bitters"
+gem "normalize-rails", "~> 3.0.0"
 
 group :development do
   gem "monban-generators"

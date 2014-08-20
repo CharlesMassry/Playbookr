@@ -1,0 +1,6 @@
+= div_for(medium) do
+  - if medium.file_content_type =~ /\Aimage\/.*\Z/
+    = image_tag medium.file
+  - elsif medium.file_content_type =~ /\Avideo\/.*\Z/
+    = video_tag medium.file
+  = medium.caption

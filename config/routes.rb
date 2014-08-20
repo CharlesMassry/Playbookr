@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resource :session, only: [:new, :create, :destroy]
   resources :users, only: [:new, :create]
   resources :teams, only: [:new, :create, :show] do
-    resources :plays, only: [:new, :create, :show]
+    resources :plays, only: [:new, :create, :show] do
+      resources :media, only: [:new, :create, :show]
+    end
   end
 end

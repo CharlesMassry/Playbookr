@@ -1,0 +1,10 @@
+@import "_site.css.scss";
+
+.content_layout {
+  display: block;
+  background-color: $site-background-color;
+  width: grid-width(4.5);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
