@@ -6,12 +6,11 @@ class MediaController < ApplicationController
   end
 
   def create
-    @medium = Medium.create_content(medium_params, @play)
+    @medium = Medium.new_content(medium_params, @play)
 
-    if @medium
+    if @medium.save
       redirect_to [@team, @play]
     else
-      @medium = Medium.new
       flash[:alert] = "Invalid media"
       render :new
     end

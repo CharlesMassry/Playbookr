@@ -6,13 +6,13 @@ class Medium < ActiveRecord::Base
   validates :content, presence: true
   validates :play, presence: true
 
-  def self.create_content(media, play)
-    medium = new(caption: media[:caption], play: play)
-    medium.content = create_file(media[:file])
-    medium.save
+  def self.new_content(media, play)
+    new(caption: media[:caption], play: play) do |medium|
+      medium.content = new_file(media[:file])
+    end
   end
 
-  def self.create_file(file)
+  def self.new_file(file)
     file ||= NullFile.new
     if file.content_type =~ /\Aimage\/.*\Z/
       Image.new(file: file)
