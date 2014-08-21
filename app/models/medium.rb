@@ -7,20 +7,17 @@ class Medium < ActiveRecord::Base
   validates :play, presence: true
 
   def self.create_content(media, play)
-    if media[:file]
-      transaction do
-        create(content: create_file(media[:file]),
-               caption: media[:caption],
-               play: play)
-      end
-    end
+    medium = new(caption: media[:caption], play: play)
+    medium.content = create_file(media[:file])
+    medium.save
   end
 
   def self.create_file(file)
+    file ||= NullFile.new
     if file.content_type =~ /\Aimage\/.*\Z/
-      Image.create(file: file)
+      Image.new(file: file)
     elsif file.content_type =~ /\Avideo\/.*\Z/
-      Video.create(file: file)
+      Video.new(file: file)
     end
   end
 end

@@ -42,4 +42,16 @@ feature "Media creation" do
     expect(page).to have_selector("form")
     expect(page).to have_css("#new_medium")
   end
+
+  scenario "I cannot submit an invalid file type" do
+    sign_in(@user)
+    visit team_play_path(@team, @play)
+    click_link "Add photo or video"
+    attach_file "File", "spec/asset_specs/fail/erd.pdf"
+    fill_in "Caption", with: "should not work"
+    click_button "Add photo or video"
+
+    expect(page).to have_selector("form")
+    expect(page).to have_css("#new_medium")
+  end
 end
