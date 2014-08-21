@@ -1,10 +1,26 @@
 class Medium < ActiveRecord::Base
   belongs_to :play
   has_one :team, through: :play
-  has_attached_file :file
+  belongs_to :content, polymorphic: true
 
+  validates :content, presence: true
   validates :play, presence: true
-  validates_attachment_content_type :file,
-    content_type: /\A(image)|(video)\/.*\Z/
-  validates_attachment_presence :file
+
+  def self.new_content(media, play)
+    transaction do
+      create(content: create_file(media[:file]),
+             caption: media[:caption],
+             play: play)
+    end
+  end
+
+  private
+
+  def self.create_file(file = NullFile.new)
+    if file.content_type =~ /\Aimage\/.*\Z/
+      Image.create(file: file)
+    elsif file.content_type =~ /\Avideo\/.*\Z/
+      Video.create(file: file)
+    end
+  end
 end

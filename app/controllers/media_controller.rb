@@ -6,11 +6,14 @@ class MediaController < ApplicationController
   end
 
   def create
-    @medium = Medium.new(medium_params)
+    @play = find_play
+    @team = find_team
+    @medium = Medium.new_content(medium_params, @play)
 
-    if @medium.save
-      redirect_to [@medium.team, @medium.play]
+    if @medium
+      redirect_to [@team, @play]
     else
+      @medium = Medium.new
       flash[:alert] = "Invalid media"
       render :new
     end
@@ -29,7 +32,6 @@ class MediaController < ApplicationController
   def medium_params
     params.
       require(:medium).
-      permit(:file, :caption).
-      merge(play: find_play)
+      permit(:file, :caption)
   end
 end

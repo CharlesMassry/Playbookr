@@ -1,17 +1,13 @@
-def fixture_file(path)
-  File.open(Rails.root.join("spec", "asset_specs", path))
-end
-
 FactoryGirl.define do
   factory :photo_medium, class: Medium do
-    file fixture_file("photos/photo.jpg")
+    association :content, factory: :image
     caption "Routes"
-    play
+    association :play
   end
 
   factory :video_medium, class: Medium do
-    file fixture_file("videos/video.MOV")
+    association :content, factory: :video
     caption "Cutting"
-    play
+    association :play
   end
 end
