@@ -14,8 +14,6 @@ class Medium < ActiveRecord::Base
     end
   end
 
-  private
-
   def self.create_file(file = NullFile.new)
     if file.content_type =~ /\Aimage\/.*\Z/
       Image.create(file: file)
