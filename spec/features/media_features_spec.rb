@@ -32,4 +32,14 @@ feature "Media creation" do
 
     expect(page).to have_selector("video")
   end
+
+  scenario "I cannot submit a blank file field" do
+    sign_in(@user)
+    visit team_play_path(@team, @play)
+    click_link "Add photo or video"
+    click_button "Add photo or video"
+
+    expect(page).to have_selector("form")
+    expect(page).to have_css("#new_medium")
+  end
 end

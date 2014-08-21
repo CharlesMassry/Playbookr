@@ -1,14 +1,12 @@
 class MediaController < ApplicationController
+  before_action :find_team_and_play
+
   def new
     @medium = Medium.new
-    @play = find_play
-    @team = find_team
   end
 
   def create
-    @play = find_play
-    @team = find_team
-    @medium = Medium.new_content(medium_params, @play)
+    @medium = Medium.create_content(medium_params, @play)
 
     if @medium
       redirect_to [@team, @play]
@@ -20,6 +18,11 @@ class MediaController < ApplicationController
   end
 
   private
+
+  def find_team_and_play
+    @play = find_play
+    @team = find_team
+  end
 
   def find_team
     Team.find(params[:team_id])
