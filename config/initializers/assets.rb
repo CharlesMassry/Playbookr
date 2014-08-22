@@ -9,4 +9,5 @@ Rails.application.config.assets.precompile += %w(
   video-js.swf
   vjs.eot
   vjs.woff
-  vjs.ttf)
+  vjs.ttf
+)
