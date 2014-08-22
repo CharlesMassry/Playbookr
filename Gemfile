@@ -18,6 +18,7 @@ gem "bourbon", "~> 3.2.1"
 gem "neat", "~> 1.5.1"
 gem "bitters"
 gem "normalize-rails", "~> 3.0.0"
+gem "videojs_rails"
 
 group :development do
   gem "monban-generators"
