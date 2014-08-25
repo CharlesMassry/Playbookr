@@ -1,18 +1,23 @@
 @import "_site.css.scss";
-.container {
+.navigation{
+  margin-top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
   background-color: $nav-background-color;
 
   nav {
     padding-top: 10px;
     padding-bottom: 10px;
-    width: grid-width(4.5);
-    margin-left: auto;
-    margin-right: auto;
+    @include outer-container;
 
     ul {
       list-style-type: none;
       display: inline-block;
       float: right;
+      margin: 0;
+      bottom: 0;
+      margin-top: 10px;
 
       li {
         display: inline-block;

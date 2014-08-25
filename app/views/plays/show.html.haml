@@ -1,8 +1,15 @@
-.play_name
-  = @play.name
-.play_description
-  = @play.description
+= div_for(@play) do
+  .play_name
+    = @play.name
+  .play_description
+    = @play.description
 
-= link_to "Add photo or video", new_team_play_medium_path(@play.team, @play)
+  = link_to "Add photo or video", new_team_play_medium_path(@play.team, @play), class: "new_media_button"
 
-= render @media
+  #media
+    = render @media
+
+  #play_comments
+    #new_play_comments
+      = button_tag "Add comment to play", class: "new_play_comment", data: { type: "play", id: @play.id }
+    = render @comments

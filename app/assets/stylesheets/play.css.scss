@@ -1,0 +1,29 @@
+@import "_site.css.scss";
+
+.play_name {
+  font-size: 2em;
+  color: $green-site;
+  padding: 10px;
+}
+
+.play_description {
+  padding: 10px;
+  color: $green-site;
+}
+
+.new_media_button, .new_media_comment, #submit_medium_comment,
+.comment_comment, .new_comment_comment {
+  @include button(shiny, $green-site);
+  margin: 10px;
+}
+
+.medium {
+  border-top: 1px solid $green-site;
+  margin: 5px 10px 0 10px;
+  padding-top: 5px;
+}
+
+#play_comments {
+  border-top: 1px solid $green-site;
+  margin: 0 10px 0 10px;
+}
