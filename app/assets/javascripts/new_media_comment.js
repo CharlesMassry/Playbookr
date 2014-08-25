@@ -3,9 +3,9 @@ $(function(){
     var button = $(this);
     var mediumId = button.attr("data");
     var form = $("<form id='medium_comment_form_" + mediumId + "'>");
-    var input = $("<textarea id='input_medium_comment' type='text'>");
-    var commentableTypeField = $("<input type='hidden' id='commentable_type' value='Medium'>");
-    var commentableIdField = $("<input type='hidden' id='commentable_id' value='" + mediumId + "'>");
+    var input = $("<textarea name='body' id='input_medium_comment' type='text'>");
+    var commentableTypeField = $("<input name='commentable_type' type='hidden' id='commentable_type' value='Medium'>");
+    var commentableIdField = $("<input name='commentable_id' type='hidden' id='commentable_id' value='" + mediumId + "'>");
     var submitButton = $('<input id="submit_medium_comment" name="commit" type="submit" value="Add comment">');
 
     form.append(commentableTypeField);
@@ -20,10 +20,8 @@ $(function(){
     var commentableId = $("#commentable_id").val();
     var commentableType = $("#commentable_type").val();
 
-    $.ajax({
-      url: location.pathname + "/medium_comments",
-      type: "POST",
-      data: { comment: { body: commentInput, commentable_id: commentableId, commentable_type: commentableType } }
+    $.post( location.pathname + "/medium_comments",
+           { comment: { body: commentInput, commentable_id:commentableId, commentable_type: commentableType }
     });
     return false;
   });
