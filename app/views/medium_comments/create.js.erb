@@ -1,0 +1,3 @@
+$("#medium_<%= @comment.commentable_id %>").append("<%=j render(@comment) %>");
+var button = $("<div><button class='new_media_comment' data='<%= @comment.commentable_id %>' name='button' type='submit'>Add comment to media</button></div>");
+$("form#medium_comment_form_<%= @comment.commentable_id %>").replaceWith(button);

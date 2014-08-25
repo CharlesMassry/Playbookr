@@ -19,6 +19,7 @@ class PlaysController < ApplicationController
   def show
     @play = find_play
     @media = Medium.where(play: @play).includes(:content)
+    @comments = Comment.includes(:user, :commentable).where(commentable_id: @play.id, commentable_type: "Play")
   end
 
   private

@@ -1,0 +1,3 @@
+$("#comment_<%= @comment.commentable_id %>").append("<%=j render(@comment) %>");
+var button = $("<div><button class='reply reply_form_trigger' data='<%= @comment.commentable_id %>' name='button' type='submit'>Reply</button></div>");
+$("form#comment_comment_form_<%= @comment.commentable_id %>").replaceWith(button);

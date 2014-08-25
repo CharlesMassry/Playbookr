@@ -1,0 +1,9 @@
+= div_for(comment) do
+  .user_comment
+    = comment.user.email
+  .comment_body
+    = comment.body
+  .comment_time
+    #{time_ago_in_words(comment.created_at)} ago
+  = button_tag "Reply", class: "reply reply_form_trigger", data: comment.id
+  = render comment.comments

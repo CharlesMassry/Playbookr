@@ -6,4 +6,5 @@ describe Medium do
   it { should belong_to(:content) }
   it { should validate_presence_of(:play) }
   it { should validate_presence_of(:content) }
+  it { should have_many(:comments) }
 end

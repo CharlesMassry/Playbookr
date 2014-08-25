@@ -1,0 +1,17 @@
+@import "_site.css.scss";
+
+.new_play_comment, #submit_play_comment {
+  @include button(shiny, $green_site);
+  margin: 10px;
+}
+
+textarea {
+  display: block;
+  margin: 10px;
+}
+
+.comment {
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid $green_site;
+}

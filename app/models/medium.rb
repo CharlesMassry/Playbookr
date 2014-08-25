@@ -2,6 +2,7 @@ class Medium < ActiveRecord::Base
   belongs_to :play
   has_one :team, through: :play
   belongs_to :content, polymorphic: true
+  has_many :comments, as: :commentable
 
   validates :content, presence: true
   validates :play, presence: true
@@ -20,4 +21,5 @@ class Medium < ActiveRecord::Base
       Video.new(file: file)
     end
   end
+  private_class_method :new_file
 end
