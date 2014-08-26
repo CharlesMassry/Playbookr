@@ -21,7 +21,7 @@ class PlaysController < ApplicationController
     @media = Medium.where(play: @play).includes(:content)
     @comments = Comment.
       includes(:user, :commentable).
-      where(commentable_id: @play.id, commentable_type: "Play")
+      where(commentable: @play)
   end
 
   private

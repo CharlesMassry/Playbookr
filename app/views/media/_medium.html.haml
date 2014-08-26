@@ -1,6 +1,6 @@
 = div_for(medium) do
   = render medium.content
   = medium.caption
-  %div
+  .media_comment
     = button_tag "Add comment to media", class: "new_media_comment", data: medium.id
   = render medium.comments

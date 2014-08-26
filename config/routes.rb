@@ -6,9 +6,7 @@ Rails.application.routes.draw do
 
   resources :teams, only: [:new, :create, :show] do
     resources :plays, only: [:new, :create, :show] do
-      resources :play_comments, only: [:create]
-      resources :medium_comments, only: [:create]
-      resources :comment_comments, only: [:create]
+      resources :comments, only: [:create]
       resources :media, only: [:new, :create, :show]
     end
   end

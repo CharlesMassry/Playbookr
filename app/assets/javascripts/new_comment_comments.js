@@ -6,10 +6,8 @@ $(function(){
     $("#submit_comment_comment").addClass("reply");
   });
 
-  $(".comment").on("submit", $("#submit_comment_comment"), function(){
-    var commentParams = $(this).find("form").serialize();
-
-    $.post( location.pathname + "/comment_comments", commentParams);
+  $(".comment").on("submit", "form", function(){
+    submitComment($(this));
     return false;
   });
 });
