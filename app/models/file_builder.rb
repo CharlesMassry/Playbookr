@@ -12,5 +12,6 @@ class FileBuilder
   end
 
   private
+
   attr_reader :file
 end
