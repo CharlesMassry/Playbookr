@@ -4,7 +4,7 @@
 @import "video-js.css";
 
 body {
-  background: url("grass_background.jpg");
+  @include background-image(url("grass_background.jpg"));
   margin: 0;
 }
 

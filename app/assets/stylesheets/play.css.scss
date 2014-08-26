@@ -11,21 +11,19 @@
   color: $green-site;
 }
 
-.new_media_button, .new_media_comment, #submit_medium_comment, .reply {
+.new_media_button, .new_media_comment, #submit_medium_comment,
+.comment_comment, .reply {
   @include button(shiny, $green-site);
   margin: 10px;
 }
 
 .medium {
   border-top: 1px solid $green-site;
-  margin-top: 5px;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 5px 10px 0 10px;
   padding-top: 5px;
 }
 
 #play_comments {
   border-top: 1px solid $green-site;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px 0 10px;
 }

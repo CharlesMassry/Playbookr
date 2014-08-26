@@ -1,11 +1,6 @@
 class MediumCommentsController < ApplicationController
   def create
-    @comment = Comment.create(
-      body: comment_params[:body],
-      commentable_type: comment_params[:commentable_type],
-      commentable_id: comment_params[:commentable_id],
-      user: current_user
-    )
+    @comment = current_user.comments.create(comment_params)
   end
 
   private
