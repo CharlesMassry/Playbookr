@@ -9,7 +9,7 @@ class Medium < ActiveRecord::Base
 
   def self.new_content(media, play)
     new(caption: media[:caption], play: play) do |medium|
-      medium.content = FileBuilder.new(media[:file])
+      medium.content = FileBuilder.new(media[:file]).build
     end
   end
 end
