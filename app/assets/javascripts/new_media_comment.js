@@ -1,12 +1,8 @@
 $(function(){
   $(".medium").on("click", ".new_media_comment", function(){
     var button = $(this);
-    var commentableId = button.attr("data");
-    dynamicFormFor(button, commentableId, "medium", "Add comment");
+    dynamicFormFor(button, "medium");
   });
 
-  $(".medium").on("click", "form", function(){
-    submitComment($(this));
-    return false;
-  });
+  $(".medium").on("submit", "form", submitComment);
 });

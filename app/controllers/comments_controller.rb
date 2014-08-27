@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.create(comment_params)
-    folder = comment_params[:commentable_type].downcase
-    render "#{folder}_comments/create.js.erb"
+    file = comment_params[:commentable_type].downcase
+    render "create_#{file}_comment"
   end
 
   private

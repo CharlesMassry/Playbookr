@@ -1,4 +1,5 @@
-function submitComment(comment) {
-  var commentParams = comment.serialize();
+function submitComment() {
+  var commentParams = $(this).serialize();
   $.post(location.pathname + "/comments", commentParams);
+  return false;
 }
