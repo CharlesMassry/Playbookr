@@ -5,5 +5,5 @@
     = comment.body
   .comment_time
     #{time_ago_in_words(comment.created_at)} ago
-  = button_tag "Reply", class: "new_comment_comment", data: "comment_#{comment.id}"
+  = button_tag "Reply", class: "new_comment_comment", data: { type: "comment", id: comment.id }
   = render comment.comments
