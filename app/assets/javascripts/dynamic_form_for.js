@@ -2,8 +2,10 @@ function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-function dynamicFormFor(button, type) {
-  var commentableId = button.attr("data");
+function dynamicFormFor() {
+  var button = $(this);
+  var type = button.attr("data").replace(/_\d*/,"");
+  var commentableId = button.attr("data").replace(/\D*/, "");
   var form = $("<form id='" + type + "_comment_form_" + commentableId + "'>");
   var input = $("<textarea name='comment[body]' id='input_" + type + "_comment' type='text'>");
   var commentableTypeField = $("<input type='hidden' name='comment[commentable_type]' id='commentable_type' value='"+ capitalize(type) +"'>");

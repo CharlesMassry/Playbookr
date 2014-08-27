@@ -1,8 +1,4 @@
 $(function(){
-  $(".comment").on("click", ".new_comment_comment", function(){
-    var button = $(this);
-    dynamicFormFor(button, "comment");
-  });
-
+  $(".comment").on("click", ".new_comment_comment", dynamicFormFor);
   $(".comment").on("submit", "form", submitComment);
 });

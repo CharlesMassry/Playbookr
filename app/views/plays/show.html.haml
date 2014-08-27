@@ -11,5 +11,5 @@
 
   #play_comments
     #new_play_comments
-      = button_tag "Add comment to play", class: "new_play_comment", data: @play.id
+      = button_tag "Add comment to play", class: "new_play_comment", data: "play_#{@play.id}"
     = render @comments

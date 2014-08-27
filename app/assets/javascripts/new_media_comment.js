@@ -1,8 +1,4 @@
 $(function(){
-  $(".medium").on("click", ".new_media_comment", function(){
-    var button = $(this);
-    dynamicFormFor(button, "medium");
-  });
-
+  $(".medium").on("click", ".new_media_comment", dynamicFormFor);
   $(".medium").on("submit", "form", submitComment);
 });

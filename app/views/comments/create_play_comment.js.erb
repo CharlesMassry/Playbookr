@@ -1,5 +1,5 @@
 $("#play_comments").append("<%=j render(@comment) %>");
 var buttonDiv = $("<div id='new_play_comments'></div>");
-var button = $("<button class='new_play_comment' data='<%= @comment.commentable_id %>' name='button' type='submit'>Add comment to play</button>");
+var button = $("<button class='new_play_comment' data='play_<%= @comment.commentable_id %>' name='button' type='submit'>Add comment to play</button>");
 var newButton = buttonDiv.append(button);
 $("#new_play_comments").replaceWith(newButton);
