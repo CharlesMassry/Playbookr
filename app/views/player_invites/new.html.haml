@@ -1,0 +1,6 @@
+= form_for :players, url: team_player_invites_path(@team) do |form|
+  .emails
+    = form.label :emails
+    = form.text_area :emails
+  .email_button
+    = form.submit "Send Email Invites", class: "email_invite_button"

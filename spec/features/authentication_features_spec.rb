@@ -8,7 +8,7 @@ feature "As a user" do
     click_link "Sign up"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
-    click_button "Sign up"
+    click_button "Sign Up"
 
     expect(page).to have_content(user.email)
     expect(find_user(user).email).to eq(user.email)
@@ -21,7 +21,7 @@ feature "As a user" do
     click_link "Sign in"
     fill_in "Email", with: user.email
     fill_in "Password", with: user.password_digest
-    click_button "Sign in"
+    click_button "Sign In"
 
     expect(page).to have_content(user.email)
     expect(find_user(user)).to eq(user)
@@ -32,7 +32,7 @@ feature "As a user" do
 
     sign_in(user)
     visit root_path
-    click_link "Sign out"
+    click_link "Sign Out"
 
     expect(page).not_to have_content(user.email)
     expect(page).to have_link("Sign in")

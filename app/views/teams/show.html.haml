@@ -2,4 +2,4 @@
   = @team.name
 = link_to "Add Play", new_team_play_path(@team)
 .players
-  = render @team.users
+  = link_to "Add players", new_team_player_invites_path(@team)
