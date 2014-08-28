@@ -1,0 +1,13 @@
+= form_for @user, url: players_path do |form|
+  .email_field
+    = form.label :email
+    = form.email_field :email
+  .password_field
+    = form.label :password
+    = form.password_field :password
+  = fields_for :sign_up_token do |token_form|
+    .token_field
+      = token_form.label :token
+      = token_form.text_field :token
+  .submit
+    = form.submit "Sign Up"

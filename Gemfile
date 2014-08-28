@@ -19,6 +19,7 @@ gem "neat", "~> 1.5.1"
 gem "bitters"
 gem "normalize-rails", "~> 3.0.0"
 gem "videojs_rails"
+gem "delayed_job_active_record"
 
 group :development do
   gem "monban-generators"
