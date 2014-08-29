@@ -16,7 +16,6 @@ feature "A player sign up" do
     expect(page).to have_link("Sign Out")
     expect(page).not_to have_link("Create team")
     expect(page).to have_content(team.name)
-    expect(page.current_path).to eq("/teams/#{team.id}")
   end
 end
 

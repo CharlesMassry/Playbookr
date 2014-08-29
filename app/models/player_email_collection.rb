@@ -2,20 +2,11 @@ class PlayerEmailCollection
   include Enumerable
 
   def initialize(email_addresses)
-    @email_addresses = email_addresses
+    @email_addresses = email_addresses.split
   end
 
-  def each
-    index = 0
-    while index < to_a.length
-      email_address = to_a[index]
-      yield(email_address)
-      index += 1
-    end
-  end
-
-  def to_a
-    email_addresses.split
+  def each(&block)
+    email_addresses.each(&block)
   end
 
   private

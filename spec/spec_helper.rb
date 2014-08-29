@@ -6,6 +6,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
   config.include Monban::Test::Helpers, type: :feature
   config.include Paperclip::Shoulda::Matchers
+  config.include EmailSpec::Helpers
+  config.include EmailSpec::Matchers
 
   config.after :each do
     Monban.test_reset!

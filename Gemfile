@@ -44,4 +44,5 @@ group :test do
   gem "shoulda-matchers", require: false
   gem "timecop"
   gem "webmock"
+  gem "email_spec"
 end

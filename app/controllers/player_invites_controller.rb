@@ -5,9 +5,6 @@ class PlayerInvitesController < ApplicationController
 
   def create
     team = find_team
-    email_addresses = PlayerEmailCollection.new(
-      player_invites_params[:emails]
-    )
 
     email_addresses.each do |email_address|
       token = SignUpToken.create_token(email_address, team)
@@ -19,6 +16,12 @@ class PlayerInvitesController < ApplicationController
   end
 
   private
+
+  def email_addresses
+    PlayerEmailCollection.new(
+      player_invites_params[:emails]
+    )
+  end
 
   def player_invites_params
     params.
