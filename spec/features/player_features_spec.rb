@@ -13,7 +13,7 @@ feature "A player sign up" do
     click_button "Sign Up"
 
     expect(page).to have_content(player.email)
-    expect(page).to have_link("Sign out")
+    expect(page).to have_link("Sign Out")
     expect(page).not_to have_link("Create team")
     expect(page).to have_content(team.name)
     expect(page.current_path).to eq("/teams/#{team.id}")
@@ -29,7 +29,7 @@ feature "A malicious person" do
     click_button "Sign Up"
 
     expect(page).not_to have_content("malicious@person.com")
-    expect(page).not_to have_link("Sign out")
+    expect(page).not_to have_link("Sign Out")
     expect(page).not_to have_link("Create Team")
     expect(page).to have_selector("form")
   end

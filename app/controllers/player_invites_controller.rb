@@ -9,7 +9,7 @@ class PlayerInvitesController < ApplicationController
       player_invites_params[:emails]
     )
 
-    email_addresses.all.each do |email_address|
+    email_addresses.each do |email_address|
       token = SignUpToken.create_token(email_address, team)
       PlayerSignUpMailer.delay.invite(token)
     end
