@@ -1,4 +1,6 @@
 class MediaController < ApplicationController
+  before_filter :verify_team
+
   def new
     @play = find_play
     @team = find_team
@@ -32,5 +34,12 @@ class MediaController < ApplicationController
     params.
       require(:medium).
       permit(:file, :caption)
+  end
+
+  def verify_team
+    if current_user.team != find_team
+      flash[:error] = "You may only access your own team."
+      redirect_to current_user.team
+    end
   end
 end

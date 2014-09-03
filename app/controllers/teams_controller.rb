@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_filter :verify_team, only: [:show]
+
   def new
     @team = Team.new
   end
@@ -27,5 +29,12 @@ class TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:name)
+  end
+
+  def verify_team
+    if current_user.team != find_team
+      flash[:error] = "You may only access your own team."
+      redirect_to current_user.team
+    end
   end
 end

@@ -1,4 +1,6 @@
 class PlayerInvitesController < ApplicationController
+  before_filter :verify_team
+
   def new
     @team = find_team
   end
@@ -31,5 +33,12 @@ class PlayerInvitesController < ApplicationController
 
   def find_team
     Team.find(params[:team_id])
+  end
+
+  def verify_team
+    if current_user.team != find_team
+      flash[:error] = "You may only access your own team."
+      redirect_to current_user.team
+    end
   end
 end
