@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :require_login
 
-  def check_coach
+  def verify_coach
     unless current_user.coach?
       flash[:error] = "You must be the coach to do that."
       redirect_to current_user.team

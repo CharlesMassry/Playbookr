@@ -1,5 +1,5 @@
 class PlayerInvitesController < ApplicationController
-  before_action :check_coach
+  before_action :verify_coach
 
   def new
     @team = find_team

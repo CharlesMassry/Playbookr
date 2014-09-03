@@ -1,5 +1,5 @@
 class PlaysController < ApplicationController
-  before_filter :check_coach, only: [:new, :create]
+  before_filter :verify_coach, only: [:new, :create]
 
   def new
     @team = find_team
