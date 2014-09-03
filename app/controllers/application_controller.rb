@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
       redirect_to current_user.team
     end
   end
+
+  def find_team
+    nil
+  end
 end
