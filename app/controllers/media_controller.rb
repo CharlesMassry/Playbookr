@@ -1,4 +1,6 @@
 class MediaController < ApplicationController
+  before_filter :verify_team
+
   def new
     @play = find_play
     @team = find_team

@@ -1,4 +1,6 @@
 class PlayerInvitesController < ApplicationController
+  before_filter :verify_team
+
   def new
     @team = find_team
   end

@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_filter :verify_team, only: [:show]
+
   def new
     @team = Team.new
   end
