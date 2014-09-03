@@ -1,4 +1,6 @@
 class MediaController < ApplicationController
+  before_action :check_coach
+
   def new
     @play = find_play
     @team = find_team

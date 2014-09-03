@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def create
     @user = sign_up(user_params)
+    @user.update(role: "Coach")
 
     if @user.valid?
       sign_in(@user)

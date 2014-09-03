@@ -1,4 +1,6 @@
 class PlayerInvitesController < ApplicationController
+  before_action :check_coach
+
   def new
     @team = find_team
   end
