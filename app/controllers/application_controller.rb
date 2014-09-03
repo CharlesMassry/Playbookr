@@ -15,4 +15,11 @@ class ApplicationController < ActionController::Base
   def find_team
     nil
   end
+
+  def verify_coach
+    unless current_user.coach?
+      flash[:error] = "You must be the coach to do that."
+      redirect_to current_user.team
+    end
+  end
 end

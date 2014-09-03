@@ -7,9 +7,17 @@ class User < ActiveRecord::Base
   def self.create_as_player(user_params, token)
     if token
       user = Monban::Services::SignUp.new(user_params).perform
-      user.update(team: token.team)
+      user.update(team: token.team, role: "Player")
       token.destroy
       user
     end
+  end
+
+  def coach?
+    role == "Coach"
+  end
+
+  def player?
+    role == "Player"
   end
 end

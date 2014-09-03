@@ -4,7 +4,8 @@
   .play_description
     = @play.description
 
-  = link_to "Add photo or video", new_team_play_medium_path(@play.team, @play), class: "new_media_button"
+  - if current_user.coach?
+    = link_to "Add photo or video", new_team_play_medium_path(@play.team, @play), class: "new_media_button"
 
   #media
     = render @media

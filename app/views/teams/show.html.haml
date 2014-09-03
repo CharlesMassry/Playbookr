@@ -1,5 +1,6 @@
 %h1
   = @team.name
-= link_to "Add Play", new_team_play_path(@team)
-.players
-  = link_to "Add players", new_team_player_invites_path(@team)
+- if current_user.coach?
+  = link_to "Add Play", new_team_play_path(@team)
+  .players
+    = link_to "Add Players", new_team_player_invites_path(@team)
