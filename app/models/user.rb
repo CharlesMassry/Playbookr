@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   belongs_to :team
   has_many :comments, dependent: :destroy
+  has_many :plays, through: :team
 
   def self.create_as_player(user_params, token)
     if token
