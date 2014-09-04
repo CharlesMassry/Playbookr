@@ -1,5 +1,4 @@
-- if current_user.team
-  = render current_user.team.plays
-- else
+= render current_user.plays
+- unless current_user.team
   %h1.create_team
     = link_to "Create Team", new_team_path
