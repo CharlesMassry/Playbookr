@@ -1,6 +1,8 @@
 = div_for(comment) do
   .user_comment
     = comment.user.email
+  - if current_user.permission_to_change_comment?(comment)
+    = button_tag "X", class: "comment_delete", data: { comment_id: comment.id }
   .comment_body
     = comment.body
   .comment_time

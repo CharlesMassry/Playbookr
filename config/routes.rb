@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resource :player_invites, only: [:new, :create]
 
     resources :plays, only: [:new, :create, :show] do
-      resources :comments, only: [:create]
+      resources :comments, only: [:create, :destroy]
       resources :media, only: [:new, :create, :show]
     end
   end
