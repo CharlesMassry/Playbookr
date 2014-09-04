@@ -25,6 +25,6 @@ class User < ActiveRecord::Base
     if coach?
       team.destroy
     end
-    self.destroy
+    destroy
   end
 end
