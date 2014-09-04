@@ -7,7 +7,16 @@ class CommentsController < ApplicationController
     render "create_#{file}_comment"
   end
 
+  def destroy
+    comment = find_comment
+    comment.destroy
+  end
+
   private
+
+  def find_comment
+    Comment.find(params[:id])
+  end
 
   def comment_params
     params.

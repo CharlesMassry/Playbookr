@@ -20,4 +20,8 @@ class User < ActiveRecord::Base
   def player?
     role == "Player"
   end
+
+  def permission_to_change_comment?(comment)
+    coach? || comment.user == self
+  end
 end

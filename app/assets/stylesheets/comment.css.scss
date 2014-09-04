@@ -15,3 +15,15 @@ textarea {
   padding: 5px;
   border: 1px solid $green_site;
 }
+
+.user_comment {
+  display: inline-block;
+}
+
+.comment_delete {
+  float: right;
+  @include button(red);
+  padding: 3px;
+  font-size: .75em;
+  margin-right: 5px;
+}
