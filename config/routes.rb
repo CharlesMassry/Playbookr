@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
     resources :plays, only: [:new, :create, :show] do
       resources :comments, only: [:create]
-      resources :media, only: [:new, :create, :show]
+      resources :media, only: [:new, :create, :show, :destroy]
     end
   end
 end

@@ -1,0 +1,7 @@
+.media_delete {
+  @include button(red);
+  padding: 3px;
+  display: inline-block;
+  float: right;
+  margin: 10px 5px 0 0;
+}
