@@ -9,6 +9,10 @@ RSpec.configure do |config|
   config.include EmailSpec::Helpers
   config.include EmailSpec::Matchers
 
+  def find_user(user)
+    User.find_by(email: user.email)
+  end
+
   config.after :each do
     Monban.test_reset!
   end
