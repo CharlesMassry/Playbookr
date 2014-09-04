@@ -21,7 +21,16 @@ class MediaController < ApplicationController
     end
   end
 
+  def destroy
+    @medium = find_medium
+    @medium.destroy
+  end
+
   private
+
+  def find_medium
+    Medium.find(params[:id])
+  end
 
   def find_team
     Team.find(params[:team_id])

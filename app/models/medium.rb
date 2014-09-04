@@ -1,8 +1,8 @@
 class Medium < ActiveRecord::Base
   belongs_to :play
   has_one :team, through: :play
-  belongs_to :content, polymorphic: true
-  has_many :comments, as: :commentable
+  belongs_to :content, polymorphic: true, dependent: :destroy
+  has_many :comments, as: :commentable, dependent: :destroy
 
   validates :content, presence: true
   validates :play, presence: true

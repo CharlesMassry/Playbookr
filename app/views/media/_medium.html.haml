@@ -1,5 +1,7 @@
 = div_for(medium) do
   = render medium.content
+  - if current_user.coach?
+    = button_tag "X", class: "media_delete", data: { id: medium.id }
   = medium.caption
   .media_comment
     = button_tag "Add comment to media", class: "new_media_comment", data: { type: "medium", id: medium.id }
