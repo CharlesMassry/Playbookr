@@ -1,0 +1,5 @@
+- if current_user.team
+  = render current_user.team.plays
+- else
+  %h1.create_team
+    = link_to "Create Team", new_team_path

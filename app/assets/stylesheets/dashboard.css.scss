@@ -1,0 +1,17 @@
+@import "_site.css.scss";
+
+.play {
+  padding-top: 10px;
+  margin: 10px;
+}
+
+.play_name_dashboard {
+  margin: 5px;
+  font-size: 2em;
+  color: $green-site;
+}
+
+.play_description_dashboard {
+  font-size: 1em;
+  color: $green-site;
+}

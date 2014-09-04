@@ -1,0 +1,5 @@
+= div_for(play) do
+  .play_name_dashboard
+    = link_to play.name, [play.team, play]
+  .play_description_dashboard
+    = play.description.truncate(140)
