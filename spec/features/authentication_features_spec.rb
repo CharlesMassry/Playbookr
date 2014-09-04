@@ -39,7 +39,3 @@ feature "As a user" do
     expect(page).to have_link("Sign up")
   end
 end
-
-def find_user(user)
-  User.find_by(email: user.email)
-end
