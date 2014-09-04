@@ -20,4 +20,11 @@ class User < ActiveRecord::Base
   def player?
     role == "Player"
   end
+
+  def delete_account
+    if coach?
+      team.destroy
+    end
+    self.destroy
+  end
 end

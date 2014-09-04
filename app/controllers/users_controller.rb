@@ -18,10 +18,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    if current_user.coach?
-      current_user.team.destroy
-    end
-    current_user.destroy
+    current_user.delete_account
     redirect_to root_path
   end
 
