@@ -7,7 +7,6 @@ gem "sass-rails", "~> 4.0.3"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
-gem "turbolinks"
 gem "email_validator"
 gem "flutie"
 gem "title"
@@ -25,6 +24,7 @@ group :development do
   gem "monban-generators"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "quiet_assets"
 end
 
 group :development, :test do
