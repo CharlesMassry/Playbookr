@@ -9,7 +9,7 @@ class PaymentGateway
     )
   end
 
-  def self.charge(customer, token)
+  def self.charge(customer)
     Stripe::Charge.create(
       amount: PaymentGateway::AMOUNT,
       currency: "usd",
