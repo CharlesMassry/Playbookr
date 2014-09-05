@@ -12,4 +12,14 @@ class User < ActiveRecord::Base
       user
     end
   end
+
+  def self.create_customer(user_params, token)
+    transaction do
+      customer = PaymentGateway.create_customer(user_params[:email], token)
+      PaymentGateway.charge(customer, token)
+      user = Monban::Services::SignUp.new(user_params).perform
+      user.update(customer: customer.id)
+      user
+    end
+  end
 end

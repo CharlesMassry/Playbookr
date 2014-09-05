@@ -1,7 +1,9 @@
 @import "bourbon";
+@import "base/base";
 @import "neat";
 @import "normalize-rails";
 @import "video-js.css";
+@import "_site.css.scss";
 
 body {
   @include background-image(url("grass_background.jpg"));
@@ -10,6 +12,8 @@ body {
 
 @import "navigation";
 @import "content_layout";
+@import "form";
+@import "team";
 @import "play";
 @import "video";
 @import "comment"

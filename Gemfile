@@ -19,6 +19,7 @@ gem "bitters"
 gem "normalize-rails", "~> 3.0.0"
 gem "videojs_rails"
 gem "delayed_job_active_record"
+gem "stripe", "~> 1.15.0"
 
 group :development do
   gem "monban-generators"

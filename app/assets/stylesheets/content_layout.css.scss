@@ -3,14 +3,22 @@
 .content_layout {
   display: block;
   background-color: $site-background-color;
+  border-radius: 5px;
   @include outer-container;
   margin-top: 40px;
   height: 100%;
 }
 
-.new_media_button, .new_media_comment, #submit_medium_comment,
-.comment_comment, .new_comment_comment, .email_invite_button,
-.sign_up_button, .sign_in_button {
-  @include button(shiny, $green-site);
-  margin: 10px;
+
+.link {
+  color: $green-site;
+  &:hover {
+    color: darken($green-site, 10);
+    text-decoration: underline;
+  }
+}
+
+.small {
+  display: inline-block;
+  margin-left: 10px;
 }

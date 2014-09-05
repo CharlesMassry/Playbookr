@@ -8,7 +8,7 @@ feature "Team creation" do
     sign_in(user)
     visit root_path
     click_link "Create team"
-    fill_in "Name", with: team.name
+    fill_in "Team Name", with: team.name
     click_button "Create Team"
 
     expect(page).to have_content(team.name)
