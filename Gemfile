@@ -7,7 +7,6 @@ gem "sass-rails", "~> 4.0.3"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.0.0"
 gem "jquery-rails"
-gem "turbolinks"
 gem "email_validator"
 gem "flutie"
 gem "title"
@@ -20,11 +19,13 @@ gem "bitters"
 gem "normalize-rails", "~> 3.0.0"
 gem "videojs_rails"
 gem "delayed_job_active_record"
+gem "stripe", "~> 1.15.0"
 
 group :development do
   gem "monban-generators"
   gem "spring"
   gem "spring-commands-rspec"
+  gem "quiet_assets"
 end
 
 group :development, :test do

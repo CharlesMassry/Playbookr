@@ -1,13 +1,10 @@
 = form_for @user, url: players_path do |form|
   .email_field
-    = form.label :email
-    = form.email_field :email
+    = form.email_field :email, placeholder: "Email", size: 30
   .password_field
-    = form.label :password
-    = form.password_field :password
+    = form.password_field :password, placeholder: "Password", size: 30
   = fields_for :sign_up_token do |token_form|
     .token_field
-      = token_form.label :token
-      = token_form.text_field :token
+      = token_form.text_field :token, placeholder: "Token", size: 30
   .submit
     = form.submit "Sign Up", class: "sign_up_button"

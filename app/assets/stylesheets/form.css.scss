@@ -1,0 +1,52 @@
+.new_media_button, .new_media_comment, #submit_medium_comment,
+.comment_comment, .new_comment_comment, .email_invite_button,
+.sign_up_button, .sign_in_button, .play_submit_button, .team_submit {
+  @include button(shiny, $green-site);
+  margin: 10px;
+}
+
+form {
+  padding: 10px;
+}
+
+label {
+  margin-left: 10px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  margin: 15px 0 15px 10px;
+  width: initial;
+  &:focus {
+    border-color: $green-site;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba($green-site, 0.7);
+  }
+}
+
+textarea {
+  width: 533px;
+  height: 100px;
+  &:focus {
+    border-color: $green-site;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba($green-site, 0.7);
+  }
+}
+
+.date {
+  display: inline-block;
+  margin-top: 0px !important;
+  margin-bottom: 5px !important;
+}
+
+.sign_up_amount {
+  margin-left: 20px;
+  padding-top: 10px;
+  color: darken($green-site, 7);
+}
+
+.new_user {
+  padding-top: 0px;
+}
+
+.sign_up_error {
+  margin-left: 10px;
+}

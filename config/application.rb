@@ -22,6 +22,10 @@ module Playbookr
     # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
     # Run "rake -D time" for a list of tasks for finding time zone names. Default is UTC.
     # config.time_zone = 'Central Time (US & Canada)'
+    config.filter_parameters << :credit_card_number
+    config.filter_parameters << :cvc
+    config.filter_parameters << :_expiry_date_2i
+    config.filter_parameters << :_expiry_date_3i
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

@@ -1,0 +1,66 @@
+<script type="text/javascript">
+  Stripe.setPublishableKey("<%= ENV["PUBLISHABLE_KEY"]%>");
+
+  function stripeResponseHandler(status, response) {
+    var $form = $("#new_user");
+
+    if (response.error) {
+      // Show the errors on the form
+      $form.find(".payment-errors").text(response.error.message);
+      $form.find(".sign_up_button").prop("disabled", false);
+    } else {
+      // response contains id and card, which contains additional card details
+      var token = response.id;
+      // Insert the token into the form so it gets submitted to the server
+      $form.append($("<input type='hidden' name='stripeToken' />").val(token));
+      // and submit
+      $form.get(0).submit();
+    }
+  };
+
+  $(function($) {
+    $('#new_user').submit(function(event) {
+      var $form = $(this);
+
+      // Disable the submit button to prevent repeated clicks
+      $form.find('.sign_up_button').prop('disabled', true);
+
+      Stripe.card.createToken($form, stripeResponseHandler);
+
+      // Prevent the form from submitting with the default action
+      return false;
+      });
+    });
+</script>
+
+<div class="sign_up_amount">
+  Signing up is only <strong><%= cents_to_currency(@amount) %></strong> a month per team.
+</div>
+
+<%= form_for user do |form| %>
+  <div class="sign_up_error">
+  <% if user.errors.any? %>
+    <%= pluralize(user.errors.count, "error") %>
+  prevented your account from being created:
+  <ul>
+    <% user.errors.full_messages.each do |error_message| %>
+      <li><%= error_message %></li>
+  <% end %>
+  </ul>
+<% end %>
+</div>
+<div class="user_email">
+  <%= form.email_field :email, placeholder: "Email", size: 30 %>
+</div>
+<div class="user_password">
+  <%= form.password_field :password, placeholder: "Password", size: 30 %>
+</div>
+<span class="payment-errors"></span>
+
+<%= text_field_tag :credit_card_number, params[:credit_card_number], class: "field", placeholder: "Credit Card Number", size: 20, data: { stripe: "number" } %>
+<%= text_field_tag :cvc, params[:cvc], placeholder: "CVC", size: 4, data: { stripe: "cvc" } %>
+<%= text_field_tag :_expiry_date_2i, params[:exp_month], size: 2, placeholder: "MM", class: "field date", data: { stripe: "exp_month" } %> <%= text_field_tag :_expiry_date_3i, params[:exp_month], size: 4, placeholder: "YYYY", class: "field date", data: { stripe: "exp_year" } %>
+<div>
+  <%= form.submit "Sign Up", class: "sign_up_button" %>
+</div>
+<% end %>

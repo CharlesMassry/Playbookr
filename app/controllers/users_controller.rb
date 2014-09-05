@@ -3,15 +3,27 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @amount = PaymentGateway::AMOUNT
   end
 
   def create
-    @user = sign_up(user_params)
-    @user.update(role: "Coach")
+    token = params[:stripeToken]
+    @user = User.new
+    @amount = PaymentGateway::AMOUNT
+
+    begin
+      @user = User.create_customer(user_params, token)
+    rescue Stripe::CardError => e
+      @user.errors.add :base, e.message
+    rescue Stripe::StripeError => e
+      logger.error e.message
+      @user.errors.add :base, "There was a problem with your credit card"
+    end
 
     if @user.valid?
+      @user.update(role: "Coach")
       sign_in(@user)
-      redirect_to root_path
+      redirect_to new_team_path, notice: "Signed up!"
     else
       render :new
     end

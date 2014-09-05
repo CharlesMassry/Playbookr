@@ -1,9 +1,7 @@
 = form_for :session, url: session_path do |form|
   %div
-    = form.label :email
-    = form.email_field :email
+    = form.email_field :email, placeholder: "Email", size: 30
   %div
-    = form.label :password
-    = form.password_field :password
+    = form.password_field :password, placeholder: "Password", size: 30
   %div
     = form.submit "Sign In", class: "sign_in_button"

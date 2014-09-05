@@ -1,0 +1,11 @@
+@import "_site.css.scss";
+
+.team {
+  padding: 10px;
+}
+
+.big_team_name {
+  display: block;
+  font-size: 2em;
+  color: $brand-color;
+}

@@ -7,9 +7,15 @@
       %li
         = link_to "Sign Out", session_path, class: "sign-out", method: :delete
 
-      -if current_user.team.nil?
+      - if current_user.team
+        %li
+          = link_to current_user.team.name, current_user.team
+      - else
         %li
           = link_to "Create team", new_team_path, class: "create-team"
+
+      %li
+        = link_to "Sign Out", session_path, class: "sign-out", method: :delete
 
     - else
       %li
