@@ -7,7 +7,7 @@ feature "Send player invites" do
 
     sign_in(user)
     visit new_team_player_invites_path(team)
-    fill_in "Emails", with: "hello@wombat.com"
+    fill_in "player@playbookr.us captain@playbookr.us", with: "hello@wombat.com"
     click_button "Send Email Invites"
 
     expect(ActionMailer::Base.deliveries.count).to eq(1)
