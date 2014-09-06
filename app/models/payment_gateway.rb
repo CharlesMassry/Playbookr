@@ -10,7 +10,8 @@ class PaymentGateway
   def self.create_customer(email, token)
     Stripe::Customer.create(
       card: token,
-      email: email
+      email: email,
+      plan: "coach_plan"
     )
   end
 
