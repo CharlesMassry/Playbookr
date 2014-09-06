@@ -2,7 +2,7 @@ class PlayerEmailCollection
   include Enumerable
 
   def initialize(email_addresses)
-    @email_addresses = email_addresses.split
+    @email_addresses = email_addresses.gsub(/,/, "").split
   end
 
   def each(&block)
