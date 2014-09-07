@@ -1,5 +1,6 @@
 = div_for(medium) do
-  = render medium.content
+  .content
+    = render medium.content
   - if current_user.coach?
     = button_tag "X", class: "media_delete", data: { id: medium.id }
   = medium.caption

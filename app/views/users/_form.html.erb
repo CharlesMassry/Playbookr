@@ -37,6 +37,10 @@
   Signing up is only <strong><%= cents_to_currency(@amount) %></strong> a month per team.
 </div>
 
+<div class="sign_up_amount stripe_notice">
+  Payments securely processed by Stripe.
+</div>
+
 <%= form_for user do |form| %>
   <div class="sign_up_error">
   <% if user.errors.any? %>

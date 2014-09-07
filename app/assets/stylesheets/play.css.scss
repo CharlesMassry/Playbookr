@@ -1,5 +1,13 @@
 @import "_site.css.scss";
 
+.play {
+  margin: 0 10px 0 10px;
+  padding-top: 5px;
+  &:not(:last-child) {
+  border-bottom: 1px solid $green-site;
+}
+}
+
 .play_name {
   font-size: 2em;
   color: $green-site;
@@ -10,7 +18,6 @@
   padding: 10px;
   color: $green-site;
 }
-
 
 .medium {
   border-top: 1px solid $green-site;
