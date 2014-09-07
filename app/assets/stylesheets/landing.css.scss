@@ -4,3 +4,13 @@
   color: $site-background-color;
   text-align: center;
 }
+
+.welcome_images {
+  @include outer-container;
+  width: 920px;
+}
+
+.welcome_image {
+  display: inline-block;
+  margin: 0 -5px 0 -5px;
+}
