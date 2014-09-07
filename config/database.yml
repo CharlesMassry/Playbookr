@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: playbookr_production
-  username: playbookr
+  username: <%= ENV['PLAYBOOKR_DATABASE_USERNAME'] %>
   password: <%= ENV['PLAYBOOKR_DATABASE_PASSWORD'] %>

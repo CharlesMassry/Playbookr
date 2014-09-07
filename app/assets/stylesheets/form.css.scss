@@ -1,8 +1,20 @@
 .new_media_button, .new_media_comment, #submit_medium_comment,
 .comment_comment, .new_comment_comment, .email_invite_button,
-.sign_up_button, .sign_in_button, .play_submit_button, .team_submit {
+.sign_up_button, .sign_in_button, .play_submit_button, .team_submit,
+.submit_media_button {
   @include button(shiny, $green-site);
   margin: 10px;
+  &:hover {
+    color: $site-background-color;
+  }
+}
+
+.delete_account_button {
+  @include button(shiny, red);
+  margin: 10px;
+  &:hover {
+    color: $site-background-color;
+  }
 }
 
 form {
@@ -49,4 +61,8 @@ textarea {
 
 .sign_up_error {
   margin-left: 10px;
+}
+
+.stripe_notice {
+  padding: 0px;
 }
