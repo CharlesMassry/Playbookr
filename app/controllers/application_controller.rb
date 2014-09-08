@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :require_login
+  force_ssl if: :ssl_necessary?
 
   def verify_team
     if current_user.team != find_team
@@ -21,5 +22,9 @@ class ApplicationController < ActionController::Base
       flash[:error] = "You must be the coach to do that."
       redirect_to current_user.team
     end
+  end
+
+  def ssl_necessary?
+    Rails.env.production?
   end
 end
