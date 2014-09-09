@@ -2,11 +2,11 @@
 @import "base/base";
 @import "neat";
 @import "normalize-rails";
-@import "video-js.css";
+@import "video-js";
 @import "_site.css.scss";
 
 body {
-  @include background-image(url("grass_background.jpg"));
+  background-image: url(<%= asset_data_uri "grass_background.jpg" %>);
   margin: 0;
 }
 

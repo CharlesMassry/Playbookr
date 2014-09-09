@@ -17,3 +17,4 @@
 /public/system
 /spec/videos/
 /spec/photos/
+/config/secrets.yml

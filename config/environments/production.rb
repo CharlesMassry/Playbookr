@@ -24,7 +24,7 @@ Rails.application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
-  # config.assets.css_compressor = :sass
+  config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -68,8 +68,8 @@ Rails.application.configure do
     address:              "smtp.gmail.com",
     port:                 587,
     domain:               ENV["DOMAIN"],
-    user_name:            "noreply@playbookr.us",
-    password:             ENV["PASSWORD"],
+    user_name:            ENV["PLAYBOOKR_MAIL_USERNAME"],
+    password:             ENV["PLAYBOOKR_MAIL_PASSWORD"],
     authentication:       "plain",
     enable_starttls_auto: true
   }
