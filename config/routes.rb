@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resource :preferences, only: [:show]
 
   resources :teams, only: [:new, :create, :show] do
+    resource :player_stats, only: [:show]
     resource :player_invites, only: [:new, :create]
 
     resources :plays, only: [:new, :create, :show] do

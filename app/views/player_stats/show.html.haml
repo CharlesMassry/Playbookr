@@ -1,0 +1,4 @@
+player
+- @player_stat_column.each do |name|
+  = name
+= render partial: "player_stat", collection: @players, as: :player

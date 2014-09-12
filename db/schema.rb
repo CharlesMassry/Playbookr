@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140905205642) do
+ActiveRecord::Schema.define(version: 20140913205229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,26 @@ ActiveRecord::Schema.define(version: 20140905205642) do
   end
 
   add_index "media", ["play_id"], name: "index_media_on_play_id", using: :btree
+
+  create_table "player_stat_columns", force: true do |t|
+    t.text     "names"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_stat_columns", ["team_id"], name: "index_player_stat_columns_on_team_id", using: :btree
+
+  create_table "player_stats", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "player_id"
+    t.json     "stats"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "player_stats", ["player_id"], name: "index_player_stats_on_player_id", using: :btree
+  add_index "player_stats", ["team_id"], name: "index_player_stats_on_team_id", using: :btree
 
   create_table "plays", force: true do |t|
     t.string   "name",        null: false

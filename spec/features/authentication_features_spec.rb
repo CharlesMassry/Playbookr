@@ -4,6 +4,7 @@ feature "As a user" do
   before(:each) do
     @user = create(:user)
   end
+
   scenario "I can sign in to playbookr" do
     visit root_path
     click_link "Sign in"
