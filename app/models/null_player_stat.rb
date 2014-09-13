@@ -1,4 +1,4 @@
-class NullStat
+class NullPlayerStat
   include Enumerable
 
   def [](_name)

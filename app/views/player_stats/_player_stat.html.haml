@@ -1,4 +1,4 @@
 = div_for(player) do
   = player.email
-  - player.team.player_stat_column.each do |name|
+  - player.team.player_stat_columns.each do |name|
     = player.player_stat.statistics[name]

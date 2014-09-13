@@ -11,10 +11,6 @@ class PlayerStat < ActiveRecord::Base
   end
 
   def statistics
-    stats || NullStat.new
-  end
-
-  def columns
-    team.player_stat_column || NullTeamStatColumn.new
+    stats || NullPlayerStat.new
   end
 end
