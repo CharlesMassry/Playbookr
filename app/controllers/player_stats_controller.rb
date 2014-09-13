@@ -1,7 +1,6 @@
 class PlayerStatsController < ApplicationController
   def show
-    team = current_user.team
-    @team_stat_column = team.team_stat_column
-    @players = team.players
+    @team_stat_column = current_user.team.team_stat_column
+    @players = current_user.team.players
   end
 end
