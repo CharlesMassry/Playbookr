@@ -7,7 +7,7 @@ class NullStat
   def to_s
   end
 
-  def fetch(_name)
+  def [](_name)
 
   end
 

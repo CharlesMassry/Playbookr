@@ -1,4 +1,4 @@
 = div_for(player) do
   = player.email
   - player.team.team_stat_column.each do |column_name|
-    = player.player_stat.statistics.fetch(column_name)
+    = player.player_stat.statistics[column_name]
