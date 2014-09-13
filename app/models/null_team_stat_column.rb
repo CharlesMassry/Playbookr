@@ -1,6 +1,6 @@
 class NullTeamStatColumn
   include Enumerable
 
-  def each(&block)
+  def each(&_block)
   end
 end

@@ -8,7 +8,6 @@ class NullStat
   end
 
   def [](_name)
-
   end
 
   def each
