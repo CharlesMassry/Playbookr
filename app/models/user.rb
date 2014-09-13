@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   belongs_to :team
   has_many :comments, dependent: :destroy
   has_many :plays, through: :team
+  has_one :player_stat, foreign_key: :player_id
+  after_create :create_player_stat
 
   def self.create_as_player(user_params, token)
     if token
@@ -47,5 +49,11 @@ class User < ActiveRecord::Base
     user = Monban::Services::SignUp.new(user_params).perform
     user.update(stripe_customer_id: customer.id)
     user
+  end
+
+  private
+
+  def create_player_stat
+    PlayerStat.create(team: team, player: self)
   end
 end
