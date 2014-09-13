@@ -1,4 +1,4 @@
-class NullTeamStatColumn
+class NullPlayerStatColumn
   include Enumerable
 
   def each(&_block)
