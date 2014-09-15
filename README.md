@@ -20,7 +20,7 @@ Usage
     $ rake db:create
     $ rake db:migrate
     
-You need to set Stripe API keys for the sign up process to work. Follow the `.env.sample` to get the your API keys. You can then run:
+You need to set Stripe API keys for the sign up process to work. Follow the `.env.sample` to get your API keys. You can then run:
 
     $ rails server
 
