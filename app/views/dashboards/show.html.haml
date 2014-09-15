@@ -1,6 +1,4 @@
 = render current_user.plays
-- if current_user.coach? && current_user.team
-  = link_to "Player stats", team_player_stats_path(current_user.team)
 - unless current_user.team
   %h1.create_team
     = link_to "Create Team", new_team_path
