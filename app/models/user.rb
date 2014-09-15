@@ -37,10 +37,7 @@ class User < ActiveRecord::Base
 
   def self.create_customer(user_params, token)
     transaction do
-      customer = PaymentGateway.create_and_charge_customer(
-        user_params[:email],
-        token
-      )
+      customer = PaymentGateway.create_customer(user_params[:email], token)
       create_user_as_customer(user_params, customer)
     end
   end
