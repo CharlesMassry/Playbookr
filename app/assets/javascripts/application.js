@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require video
+//= require angular.min
+//= require main
 //= require_tree .

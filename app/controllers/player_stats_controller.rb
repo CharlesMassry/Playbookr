@@ -1,6 +1,13 @@
 class PlayerStatsController < ApplicationController
+  before_action :verify_team
+
   def show
-    @player_stat_column = current_user.team.player_stat_columns
-    @players = current_user.team.players
+    team = find_team
+    @player_stat_column = team.player_stat_columns
+    @players = team.players
+  end
+
+  def find_team
+    Team.find(params[:team_id])
   end
 end

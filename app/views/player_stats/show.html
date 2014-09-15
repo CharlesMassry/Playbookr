@@ -1,0 +1,8 @@
+<div ng-app="playerStats">
+  <div ng-controller="playerStatsController">
+    <h3>Player Statsheet</h3>
+    player <span ng-repeat="column in columns">{{column}} </span>
+    <div ng-repeat="player in players">{{player.email}} <span
+         ng-repeat="stat in player.stats">{{stat}} </span></div>
+  </div>
+</div>
