@@ -20,6 +20,7 @@ gem "normalize-rails", "~> 3.0.0"
 gem "videojs_rails"
 gem "delayed_job_active_record"
 gem "stripe", "~> 1.15.0"
+gem "jbuilder"
 
 group :development do
   gem "monban-generators"
