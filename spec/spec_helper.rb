@@ -1,5 +1,9 @@
 require "paperclip/matchers"
+require 'webmock/rspec'
+require "capybara/webkit/matchers"
 Monban.test_mode!
+WebMock.disable_net_connect!(allow_localhost: true)
+Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
   config.include Capybara::DSL
